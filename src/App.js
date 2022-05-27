@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Search from './components/Search';
+import Filter from './components/Filter';
+import CountryList from './components/CountryList';
+import { useState } from "react";
 
 function App() {
+
+  const [Dark, setDark] = useState(false);
+
+  const changeLighting = () => {
+    setDark((prev) => { return !prev })
+  }
+
+  const styles = {
+    backgroundColor : Dark ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
+    paddingLeft: '4rem',
+    paddingRight: '4rem'
+  }
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${Dark ? "Dark" : "Light"}`}>
+     <Header isDark={ Dark } changeLighting={ changeLighting } />
+     <main style={ styles }>
+     <Search />
+     <Filter />
+     <CountryList isDark={ Dark }/>
+     </main>
     </div>
   );
 }
