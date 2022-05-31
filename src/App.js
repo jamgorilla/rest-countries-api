@@ -1,9 +1,10 @@
 import './App.css';
 import Header from './components/Header';
-import Search from './components/Search';
-import Filter from './components/Filter';
 import CountryList from './components/CountryList';
+import Country from './components/Country';
+import Error from './components/Error';
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
@@ -19,18 +20,33 @@ function App() {
     paddingRight: '4rem'
   }
 
-
-
-
   return (
-    <div className={`App ${Dark ? "Dark" : "Light"}`}>
-     <Header isDark={ Dark } changeLighting={ changeLighting } />
-     <main style={ styles }>
-     <Search />
-     <Filter />
-     <CountryList isDark={ Dark }/>
-     </main>
-    </div>
+    <Router>
+        <div className={`App ${Dark ? "Dark" : "Light"}`}>
+        <Header isDark={ Dark } changeLighting={ changeLighting } />
+        <Routes>
+          <Route path="/" element={ 
+            <main style={ styles }>
+              <CountryList isDark={ Dark }/>
+              </main> }>
+          </Route>
+          <Route path="/detail" element={
+             <main style={ styles }>
+               <h1>HI</h1>
+               <a href="/">BACK</a>
+               <Country population={ "100" } 
+               region={"US"} 
+               capital={"NY"} 
+               isDark={ Dark } 
+               flag={ "https://waste4change.com/blog/wp-content/uploads/niko-photos-tGTVxeOr_Rs-unsplash-1024x683.jpg" } 
+               name={"georgea"}/>
+            </main>
+          }>
+          </Route>
+          <Route path="*" element={ <Error /> }/>
+        </Routes>
+        </div>
+    </Router>
   );
 }
 
