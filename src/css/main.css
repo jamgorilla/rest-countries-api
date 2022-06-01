@@ -3,24 +3,9 @@
           box-sizing: border-box;
 }
 
-.header-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-left: 6.5rem;
+main {
+  padding-left: 4rem;
   padding-right: 4rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mode-button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
 }
 
 .country-list-container {
@@ -28,6 +13,7 @@
   display: grid;
   gap: 5rem;
   padding-right: 0px;
+  padding-left: 0rem;
   margin-top: 0px;
   padding-top: 2.5rem;
   padding-bottom: 3rem;
@@ -110,7 +96,6 @@ h5 {
 
 .search-and-filter-section {
   padding-top: 2rem;
-  margin-left: 2.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,5 +154,76 @@ h5 {
 .continent-list li:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.back-button {
+  text-decoration: none;
+  width: 4rem;
+  height: 2rem;
+  display: block;
+  text-align: start;
+  margin-top: 3rem;
+}
+
+.detail-card-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 9rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 3rem;
+  padding-bottom: 12rem;
+}
+
+.country-flag {
+  width: 80%;
+}
+
+.border-line-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 3rem;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.border-item-list-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+.border-list-item {
+  margin-bottom: 1rem;
+  list-style: none;
+  width: 3rem;
+  height: 2rem;
+  padding-top: 1rem;
+}
+
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mode-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

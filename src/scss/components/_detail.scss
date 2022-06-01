@@ -1,0 +1,40 @@
+
+.back-button {
+    text-decoration: none;
+    width: 4rem;
+    height: 2rem;
+    display: block;
+    text-align: start;
+    margin-top: 3rem;
+}
+
+.detail-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9rem;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-bottom: 12rem;
+}
+.country-flag {
+    width: 80%;
+}
+
+.border-line-container {
+    display: flex;
+    margin-top: 3rem;
+    align-items: baseline;
+}
+
+.border-item-list-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.border-list-item {
+    margin-bottom: 1rem;
+    list-style: none;
+    width: 3rem;
+    height: 2rem;
+    padding-top: 1rem;
+}

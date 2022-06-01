@@ -8,7 +8,7 @@ const CountryList = ( props ) => {
     const [ value, setValue ] = useState('');
     const [region, setRegion] = useState('');
 
-    const styles = {
+    const stylesElements = {
         color: props.isDark ? "white" : "black",
         backgroundColor: props.isDark ? "hsl(209, 23%, 22%)" : "white",
         border: 'none',
@@ -123,14 +123,14 @@ useEffect( () => {
         <div>
             <div className="search-and-filter-section">
                 <input 
-                style={ styles }
+                style={ stylesElements }
                 className="search-field" 
                 placeholder="Search for a country"
                 onChange={ event => setValue( event.target.value ) }
                 value={ value }    
                 />
-                <div style={styles} className="continent-list-title" onClick={ toggleList } >{region === '' ? "Filter by Region" : region }
-                <ul  style={styles} className="continent-list">
+                <div style={stylesElements} className="continent-list-title" onClick={ toggleList } >{region === '' ? "Filter by Region" : region }
+                <ul  style={stylesElements} className="continent-list">
                     <li value="Africa" onClick={ event => setRegion( "Africa" )  }>Africa</li>
                     <li value="America" onClick={event => setRegion( "America" ) }>America</li>
                     <li value="Asia" onClick={event => setRegion( "Asia" )}>Asia</li>
