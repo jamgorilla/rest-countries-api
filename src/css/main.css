@@ -226,8 +226,16 @@ h5 {
   padding-bottom: 12rem;
 }
 
+@media (max-width: 1200px) {
+  .detail-card-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 .country-flag {
   width: 90%;
+  min-width: 20rem;
 }
 
 .border-line-container {

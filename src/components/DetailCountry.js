@@ -18,7 +18,7 @@ const DetailCountry = ({ isDark, countriesData, flag, name, population, region, 
 
  if (borders) {
 
-     console.log(borders, "borderCode")
+     //console.log(borders, "borderCode")
      bordersArray = borders.map((borderCode) => {
      return <li style={ stylesElements }  className="border-list-item">{borderCode}</li>
  })
