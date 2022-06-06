@@ -40,6 +40,11 @@ main {
   aspect-ratio: 1.5/1;
 }
 
+.fa-angle-down {
+  position: absolute;
+  right: 1rem;
+}
+
 .line-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,6 +53,9 @@ main {
 
 .card-container {
   cursor: pointer;
+  opacity: 1;
+  -webkit-transition-duration: 700ms;
+          transition-duration: 700ms;
 }
 
 .card-content-container {
@@ -88,10 +96,20 @@ h5 {
 }
 
 .search-field {
+  position: relative;
   height: 3rem;
   width: 35rem;
   padding-left: 1rem;
   border-radius: 5px;
+  text-transform: none;
+  padding-left: 3rem;
+}
+
+.fa-search {
+  position: absolute;
+  font-size: larger;
+  margin-top: .9rem;
+  margin-left: 1rem;
 }
 
 .search-and-filter-section {
@@ -141,8 +159,11 @@ h5 {
   margin-top: 1.5rem;
   border-radius: 5px;
   padding-left: 0px;
-  visibility: hidden;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+  opacity: 0;
   cursor: pointer;
+  pointer-events: none;
 }
 
 .continent-list li {
@@ -156,6 +177,10 @@ h5 {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.fade {
+  opacity: 1;
+}
+
 .back-button {
   text-decoration: none;
   width: 4rem;
@@ -163,6 +188,18 @@ h5 {
   display: block;
   text-align: start;
   margin-top: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: .4rem;
+  width: 7rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
 }
 
 .detail-card-container {
@@ -179,7 +216,7 @@ h5 {
 }
 
 .country-flag {
-  width: 80%;
+  width: 90%;
 }
 
 .border-line-container {

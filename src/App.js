@@ -6,6 +6,7 @@ import Error from './components/Error';
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { findByLabelText } from '@testing-library/react';
 
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
 
   const [countriesData, setCountriesData] = useState( repeatObjects() );
   const [permanentCountriesData, setPermanentSetCountriesData] = useState( repeatObjects() );
-
   const [ value, setValue ] = useState('');
   const [region, setRegion] = useState('');
   const [countryCode, setCountryCode] = useState(0);
@@ -26,16 +26,21 @@ function App() {
   }
 
   const stylesMain = {
-    backgroundColor : Dark ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)"
-
+    backgroundColor : Dark ? "hsl(207, 26%, 17%)" : "hsl(0, 0%, 98%)",
+    transitionDuration: "500ms"
   }
 
   const stylesElements = {
     color: Dark ? "white" : "black",
     backgroundColor: Dark ? "hsl(209, 23%, 22%)" : "white",
     border: 'none',
-    boxShadow:  Dark ? '1px 1px 8px #000000' : '1px 1px 8px #888888'
+    boxShadow:  Dark ? '1px 1px 8px #000000' : '1px 1px 8px #888888',
+    transitionDuration: "500ms"
 }
+  const stylesSearch = {
+    color: Dark ? "white" : "black",
+    transitionDuration: "500ms"
+  }
 
   //populate default state for countriesData
   function repeatObjects(){
@@ -78,6 +83,13 @@ useEffect( () => {
              }
 
           }
+          if (tempCountryList.length === 0) {
+            const searchField = document.getElementsByClassName('search-field');
+            searchField[0].style.outline = "solid 1px red";
+          } else {
+            const searchField = document.getElementsByClassName('search-field');
+            searchField[0].style.outline = "none";
+          }
           setCountriesData(tempCountryList)
     }
 }, [value])
@@ -94,11 +106,7 @@ if(region.length > 0) {
           
           let name = permanentCountriesData[key].region;
 
-          console.log("INSIDE", name, region)
-
             if (name.indexOf(searchQuery) !== -1) {
-
-          console.log("RESULTS TO PUSH", permanentCountriesData[key], name, region, searchQuery)
 
                  tempCountryList.push(permanentCountriesData[key])
              }
@@ -111,14 +119,16 @@ if(region.length > 0) {
 const toggleList = () => {
     const continentList = document.getElementsByClassName("continent-list");
    
-    if (continentList[0].style.visibility === "visible") {
-        continentList[0].style.visibility = "hidden";
+    if (continentList[0].style.opacity === "1") {
+        continentList[0].style.opacity = "0";
+        continentList[0].style.pointerEvents = "none";
+
     } else {
-        continentList[0].style.visibility = "visible";
+        continentList[0].style.opacity = "1";
+        continentList[0].style.pointerEvents = "auto";
     }
 }
 
-//console.log(countriesData)
 
 // detects a change in the window location (url)
 const location = useLocation();
@@ -164,6 +174,48 @@ const permanentCountryArray = permanentCountriesData.map((country, index) => {
 
 
 
+// const cardContainer = document.querySelectorAll('.card-container');
+// //console.log(cardContainer)
+
+// const options = {
+//   root: null,
+//   threshold: 0,
+//   rootMargin: "0px"
+// };
+
+// const observer = new IntersectionObserver(function(entries,observer) {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+
+//       console.log(entry.target)
+//       entry.target.classList.add("fade");
+//     } else {
+//       entry.target.classList.remove("fade");
+
+//     }
+//   })
+// }, options);
+
+// function backFire(options){
+//    entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+
+//       console.log(entry.target)
+//       entry.target.classList.add("fade");
+//     } else {
+//       entry.target.classList.remove("fade");
+
+//     }
+//   })
+// }, options);
+// }
+
+// cardContainer.forEach(card => {
+//   observer.observe(card);
+// })
+
+//observer.observe(cardContainer)
+
   return (
         <div style={ stylesMain } className={`App ${Dark ? "Dark" : "Light"}`}>
         <Header isDark={ Dark } changeLighting={ changeLighting } />
@@ -179,7 +231,10 @@ const permanentCountryArray = permanentCountriesData.map((country, index) => {
                       onChange={ event => setValue( event.target.value ) }
                       value={ value }    
                       />
-                      <div style={stylesElements} className="continent-list-title" onClick={ toggleList } >{region === '' ? "Filter by Region" : region }
+                  <i class="fas fa-search" style={ stylesSearch }></i>
+                          <div style={stylesElements} className="continent-list-title" onClick={ toggleList } >{ 
+                          "Filter by Region " }
+                          <i className="fa-solid fa-angle-down"></i>
                       <ul  style={stylesElements} className="continent-list">
                           <li value="Africa" onClick={ event => setRegion( "Africa" )  }>Africa</li>
                           <li value="America" onClick={event => setRegion( "America" ) }>America</li>
@@ -197,7 +252,7 @@ const permanentCountryArray = permanentCountriesData.map((country, index) => {
           </Route>
           <Route path="/detail/:name" element={
              <main style={ stylesMain }>
-               <Link style={ stylesElements } to="/" className='back-button'>Back</Link>
+               <Link style={ stylesElements } to="/" className='back-button'><i class="fa-solid fa-arrow-left-long"></i> Back</Link>
                <DetailCountry 
                isDark={ Dark } 
                flag={ permanentCountriesData[countryCode].flags.png } 

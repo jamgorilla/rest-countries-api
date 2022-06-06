@@ -6,6 +6,12 @@
     display: block;
     text-align: start;
     margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: .4rem;
+    width: 7rem;
+    align-items: center;
+    border-radius: 5px;
 }
 
 .detail-card-container {
@@ -17,7 +23,7 @@
     padding-bottom: 12rem;
 }
 .country-flag {
-    width: 80%;
+    width: 90%;
 }
 
 .border-line-container {

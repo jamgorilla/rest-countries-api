@@ -20,6 +20,10 @@
     }
 }
 
+.fa-angle-down{
+    position: absolute;
+    right: 1rem;
+}
 
 .line-container{
     display: flex;
@@ -27,6 +31,8 @@
 
 .card-container {
     cursor: pointer;
+    opacity: 1;
+    transition-duration: 700ms;
 }
 
 .card-content-container {
@@ -38,7 +44,6 @@
 
     padding-left: 2rem;
     padding-right: 2rem;
-
     // word-wrap: break-word;
     line-height: 0.001rem;
 }
@@ -60,11 +65,19 @@ h5 {
     width: 8px;
 }
 .search-field {
+    position: relative;
     height: 3rem;
     width: 35rem;
     padding-left: 1rem;
     border-radius: 5px;
-
+    text-transform: none;
+    padding-left: 3rem;
+}
+.fa-search {
+    position: absolute;
+    font-size: larger;
+    margin-top: .9rem;
+    margin-left: 1rem;
 }
 .search-and-filter-section {
     padding-top: 2rem;
@@ -99,10 +112,12 @@ h5 {
     margin-top: 1.5rem;
     border-radius: 5px;
     padding-left: 0px;
+    transition-duration: 500ms;
 
-    visibility: hidden;
+
+    opacity: 0;
     cursor: pointer;
-    
+    pointer-events: none;
 
     & li {
         width: 100%;
@@ -115,4 +130,6 @@ h5 {
     }
 
 }
-
+.fade {
+    opacity: 1;
+}

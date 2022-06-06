@@ -44,7 +44,7 @@ const DetailCountry = ({ isDark, countriesData, flag, name, population, region, 
                 typeof languages == "object" ? languages.length > 1 ? languages.join(', ') : languages : languages
                 }</span></h5>
                 <div className="border-line-container">
-                <h5>Border Countries: 
+                <h5 style={{whiteSpace: "nowrap"}}>Border Countries: 
                 </h5>
                     <ul className="border-item-list-container">
                        { bordersArray }

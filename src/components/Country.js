@@ -12,7 +12,7 @@ const Country = ({ isDark, flag, name, listIndex, population, region, capital, o
 
 
     return (
-        <Link to={`./detail/${ listIndex }`}>
+        <Link style={{textDecoration: "none"}} to={`./detail/${ listIndex }`}>
         <div className="card-container" style={ styles }>
             <img className="country-flag" src={ flag } alt="flag" ></img>
             <div className='card-content-container'>
