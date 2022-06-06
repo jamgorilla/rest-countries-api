@@ -67,7 +67,8 @@ h5 {
 .search-field {
     position: relative;
     height: 3rem;
-    width: 35rem;
+    max-width: 35rem;
+    min-width: 25rem;
     padding-left: 1rem;
     border-radius: 5px;
     text-transform: none;
@@ -84,6 +85,10 @@ h5 {
     //margin-left: 2.5rem;
     display: flex;
     justify-content: space-between;
+    gap:2rem;
+    @media (max-width: 790px) {
+        flex-direction: column;
+    }
 }
 
 .continent-list-title {
@@ -113,8 +118,6 @@ h5 {
     border-radius: 5px;
     padding-left: 0px;
     transition-duration: 500ms;
-
-
     opacity: 0;
     cursor: pointer;
     pointer-events: none;
