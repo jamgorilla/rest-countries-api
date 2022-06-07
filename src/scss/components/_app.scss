@@ -1,7 +1,7 @@
 
 .country-list-container{
     display: grid;
-    gap: 5rem;
+    gap: 3rem 3%;
     padding-right: 0px;
     padding-left: 0rem;
     margin-top: 0px;
@@ -9,6 +9,8 @@
     padding-bottom: 3rem;
     @media (min-width: 1500px) {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+        overflow-x: hidden;
+        //width: 100%;
     }
     @media (min-width: 790px) and (max-width: 1500px){
         grid-template-columns: 1fr 1fr;

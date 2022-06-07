@@ -11,7 +11,7 @@ main {
 .country-list-container {
   display: -ms-grid;
   display: grid;
-  gap: 5rem;
+  gap: 3rem 3%;
   padding-right: 0px;
   padding-left: 0rem;
   margin-top: 0px;
@@ -25,6 +25,7 @@ main {
   .country-list-container {
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-x: hidden;
   }
 }
 
